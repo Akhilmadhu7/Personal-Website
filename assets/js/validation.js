@@ -7,18 +7,14 @@ var submitError = document.getElementById('submit-error');
 function namevalidation(){
     var name = document.getElementById('valid-name').value;
 
-    if(name.length == 0){
-        nameError.innerHTML = 'Name is required';
-        return false;
-    }
+    var pattern = /^[A-Za-z\s]{3,}$/;
 
-    if(!name.match(/^[A-Za-z]*\s{1}[A-Za-z]*$/)){
-        nameError.innerHTML = 'write proper name';
-        return false;
+    if(name.match(pattern)){
+        nameError.innerHTML='<i class="fa-solid fa-circle-check"></i>';
+        return true;
+    }else{
+        nameError.innerHTML='write proper name';
     }
-
-    nameError.innerHTML = '<i class="fa-solid fa-circle-check"></i>';
-    return true;
 
 
 }
